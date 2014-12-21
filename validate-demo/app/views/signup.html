@@ -1,0 +1,23 @@
+<form role="form" name="sign_form" novalidate ng-submit="signupForm()">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" placeholder="Enter username"
+    ng-model="user.name" ng-maxlength="20" ng-minlength="6" required
+    ensure-unique="api/checkname"
+    name="username"
+    ng-focus>
+    <div class="error" ng-messages="signup_form.username.$error">
+      <div ng-message="required">
+        make sure your username enter
+      </div>
+      <div ng-message="checkingAvailability">
+        checking...
+      </div>
+      <div ng-message="usernameAvailability">
+        The username has been taken, choose another one!
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
